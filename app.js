@@ -1,6 +1,9 @@
 if(process.env.NODE_ENV != "production"){
     require("dotenv").config();
 }
+app.get('/', (req, res) => {
+  res.redirect('/listings'); 
+});
 
 const express= require("express");
 const app=express();
