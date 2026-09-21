@@ -1,17 +1,14 @@
 if(process.env.NODE_ENV != "production"){
     require("dotenv").config();
 }
-app.get('/', (req, res) => {
-  res.redirect('/listings'); 
-});
 
-const express= require("express");
-const app=express();
+const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
-const path= require("path");
+const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
-const ExpressError= require("./utils/ExpressError.js");
+const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
 const MongoStore = require('connect-mongo');
 const flash = require("connect-flash");
@@ -83,6 +80,11 @@ app.use((req, res, next) => {
     res.locals.error =  req.flash("error");
     res.locals.currUser = req.user || null;
     next();
+});
+
+// Root redirect route (placed safely after app is initialized)
+app.get('/', (req, res) => {
+  res.redirect('/listings'); 
 });
 
 app.use("/listings", listingRouter);
