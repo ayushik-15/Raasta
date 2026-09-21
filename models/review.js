@@ -10,7 +10,6 @@ const reviewSchema = new Schema({
     },
     createdAt:{
         type: Date,
-        // FIX: Removed parentheses. Date.now executes at runtime for every new review.
         default: Date.now, 
     },
     author : {

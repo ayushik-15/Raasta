@@ -11,7 +11,6 @@ module.exports.listingSchema = Joi.object({
             url: Joi.string().allow("", null),
             filename: Joi.string().allow("", null)
         }),
-        // FIX: Added category validation
         category: Joi.string().required() 
     }).required()
 });

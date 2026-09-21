@@ -4,7 +4,6 @@ const mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
 module.exports.index = async (req, res) => {
-    // FIX: Extract both search query (q) and category from the URL
     const { q, category } = req.query; 
     let allListings;
 
@@ -23,7 +22,6 @@ module.exports.index = async (req, res) => {
             return res.redirect("/listings");
         }
     } else if (category) {
-        // FIX: Find listings that match the clicked category
         allListings = await Listing.find({ category: category });
         
         if (allListings.length === 0) {

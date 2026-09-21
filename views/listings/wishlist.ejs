@@ -15,7 +15,6 @@
         <% for(let listing of savedListings) { %>
           <div class="card col listing-card" style="position: relative;">
             
-            <!-- Functional Unlike Button -->
             <form method="POST" action="/listings/<%= listing._id %>/save" style="position: absolute; top: 15px; right: 15px; z-index: 10;">
               <button type="submit" style="background: transparent; border: none; cursor: pointer; padding: 0;">
                 <i class="fa-solid fa-heart" 

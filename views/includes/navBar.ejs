@@ -41,12 +41,10 @@
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
   
-        <!-- Clean if/else without the locals. prefix -->
         <% if(!currUser) { %>
           <a class="nav-link" href="/signup">Signup</a>
           <a class="nav-link" href="/login">Login</a>
         <% } else { %>
-          <!-- Wishlist sits safely inside the logged-in block -->
           <a class="nav-link" href="/listings/wishlist">My Wishlist</a>
           <a class="nav-link" href="/logout">Logout</a>
         <% } %>

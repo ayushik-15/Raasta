@@ -21,7 +21,6 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter =  require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// Pull the cloud database URL from your .env file
 const dbUrl = process.env.ATLASDB_URL;
 
 main().then(()=>{
@@ -31,7 +30,7 @@ main().then(()=>{
 });
 
 async function main() {
-    await mongoose.connect(dbUrl); // Connect Mongoose to Atlas
+    await mongoose.connect(dbUrl);
 };
 
 app.set("view engine", "ejs");
@@ -43,7 +42,7 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 
 const store = MongoStore.create({
-    mongoUrl: dbUrl, // Store user sessions in Atlas too
+    mongoUrl: dbUrl,
     crypto: {
         secret: process.env.SECRET || "mysupersecretcode"
     },
@@ -82,11 +81,9 @@ app.use((req, res, next) => {
     next();
 });
 
-// Root redirect route (placed safely after app is initialized)
 app.get('/', (req, res) => {
   res.redirect('/listings'); 
 });
-
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
@@ -96,7 +93,6 @@ app.all(/(.*)/,(req,res,next)=>{
     next(new ExpressError(404,"Page not found!"));
 });
 
-// Middleware
 app.use((err,req,res,next)=>{
     let {statusCode=500, message="Something went wrong."}=err;
     res.status(statusCode).render("listings/error.ejs", { message });

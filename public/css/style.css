@@ -1,8 +1,7 @@
-/* Core Layout & Typography */
 body {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  color: #222222; /* Deep charcoal reduces eye strain compared to pure black */
-  background-color: #ffffff; /* Pure white background ensures the UI feels invisible */
+  color: #222222; 
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -12,16 +11,15 @@ body {
   flex: 1;
 }
 
-/* Navigation */
 .navbar {
   height: 5rem;
   background-color: #ffffff !important;
-  border-bottom: 1px solid #ebebeb; /* Subtle separation instead of heavy shadows */
+  border-bottom: 1px solid #ebebeb; 
 }
 
 .fa-compass {
   font-size: 2rem;
-  color: #fe424d; /* Keeps your vibrant accent color */
+  color: #fe424d;
 }
 
 .nav-link {
@@ -29,7 +27,6 @@ body {
   font-weight: 500;
 }
 
-/* Footer (Simplified & Clean) */
 .f-info {
   height: auto;
   padding: 3rem 0;
@@ -70,12 +67,11 @@ body {
 }
 
 .listing-card {
-  border: 2px solid transparent !important; /* 2px makes the red pop cleanly */
+  border: 2px solid transparent !important; 
   border-radius: 16px; 
-  padding: 10px; /* Inner spacing to match the framed look */
+  padding: 10px; 
   margin-bottom: 2.5rem; 
   background-color: transparent;
-  /* The cubic-bezier creates the physical 'bounce' effect */
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
@@ -86,29 +82,28 @@ body {
 .card-img-top {
   border-radius: 12px !important;
   width: 100% !important;
-  aspect-ratio: 20/19; /* Forces all grid images into a uniform, professional ratio */
+  aspect-ratio: 20/19; 
   object-fit: cover !important;
-  transition: transform 0.25s ease-in-out; /* Replaces the old overlay with a modern zoom */
+  transition: transform 0.25s ease-in-out; 
 }
 
 .listing-card:hover {
   transform: translateY(-8px) scale(1.02); 
   border: 2px solid #fe424d !important; 
   box-shadow: 0 15px 25px rgba(254, 66, 77, 0.15); 
-  z-index: 10; /* Brings the hovering card above all neighboring cards */
+  z-index: 10; 
 }
 
-/* Removed the dated white opacity overlay */
 .card-img-overlay {
   display: none;
 }
 
 .card-body {
-  padding: 0.75rem 0 0 0 !important; /* Pushes text flush with the image edge */
+  padding: 0.75rem 0 0 0 !important; 
 }
 
 .card-text {
-  color: #717171; /* Softens secondary text to establish visual hierarchy */
+  color: #717171; 
 }
 
 .card-text p {
@@ -122,7 +117,6 @@ body {
   font-size: 1rem;
 }
 
-/* Buttons */
 .add-btn, .edit-btn {
   background-color: #fe424d !important;
   color: white !important;
@@ -137,7 +131,6 @@ body {
   opacity: 0.9;
 }
 
-/* Show Page Specifics */
 .show-card {
   padding-left: 0;
   padding-right: 0;
@@ -145,7 +138,7 @@ body {
 }
 
 .show-img {
-  height: 50vh; /* Increased height to make the hero image the focal point */
+  height: 50vh;
   border-radius: 16px !important;
   object-fit: cover;
   margin-bottom: 1.5rem;
@@ -165,30 +158,26 @@ body {
   gap: 1rem;
 }
 
-/* Map */
 #map {
   height: 400px;
   width: 100%;
-  border-radius: 12px; /* Softens the map edges to match the UI */
+  border-radius: 12px; 
   margin-top: 1rem;
 }
 
 #filters {
   display: flex;
   align-items: center;
-  overflow-x: auto;       /* Enables horizontal scrolling */
-  flex-wrap: nowrap;      /* Prevents stacking on mobile */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  overflow-x: auto;      
+  flex-wrap: nowrap;      
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
 }
 #filters::-webkit-scrollbar {
-  display: none; /* Hides scrollbar in Chrome/Safari */
+  display: none; 
 }
 
-
-/* Glassmorphism Auth Pages */
 .auth-bg {
-  /* A stunning travel placeholder image to make the glass effect pop */
   background: url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?q=80&w=2668&auto=format&fit=crop') no-repeat center center/cover;
   min-height: 75vh;
   display: flex;
@@ -201,10 +190,10 @@ body {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.15); /* Translucent white */
-  backdrop-filter: blur(16px); /* The frosted glass magic */
+  background: rgba(255, 255, 255, 0.15); 
+  backdrop-filter: blur(16px); 
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle edge lighting */
+  border: 1px solid rgba(255, 255, 255, 0.4); 
   border-radius: 20px;
   padding: 3rem 2.5rem;
   width: 100%;
@@ -221,7 +210,6 @@ body {
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Frosted Input Fields */
 .glass-card .form-control {
   background: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -241,7 +229,6 @@ body {
   color: #ffffff;
 }
 
-/* Glass Submit Button */
 .glass-btn {
   background: #fe424d;
   color: #ffffff;

@@ -1,4 +1,4 @@
-require("dotenv").config(); // Standard config works when running from the root folder
+require("dotenv").config(); 
 
 const mongoose = require("mongoose");
 const initData = require("./data.js");
@@ -8,7 +8,6 @@ const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 
-// Pull the cloud database URL from your .env file
 const dbUrl = process.env.ATLASDB_URL;
 
 main()
@@ -20,7 +19,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(dbUrl); // Connect Mongoose to Atlas
+  await mongoose.connect(dbUrl); 
 }
 
 const initDB = async () => {
@@ -28,7 +27,6 @@ const initDB = async () => {
   
   const categories = ["Trending", "Rooms", "Iconic Cities", "Surfing", "Beach", "Cabins", "Farms", "Amazing Pools", "Lakefront", "Castles", "Camping", "Boats"];
 
-  // Loop through each listing and fetch its Mapbox coordinates before saving
   for (let i = 0; i < initData.data.length; i++) {
       let obj = initData.data[i];
       
@@ -37,12 +35,8 @@ const initDB = async () => {
           limit: 1,
       }).send();
       
-      // Assign the geometry coordinates from Mapbox
       obj.geometry = response.body.features[0].geometry;
-      // Assign the owner
       obj.owner = "69c556348dac03e8fe7a4666"; 
-      
-      // Assign a category to the listing so the frontend filters work
       obj.category = categories[i % categories.length];
   }
 

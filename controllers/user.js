@@ -4,7 +4,6 @@ module.exports.renderSignupForm = (req,res)=>{
     res.render("users/signup.ejs");
 };
 
-// FIX: Added 'next' parameter 
 module.exports.signup = async(req, res, next)=>{
     try{
         let{username,email,password} = req.body;
@@ -18,7 +17,6 @@ module.exports.signup = async(req, res, next)=>{
             }
             req.flash("success","Welcome to Wanderlust!");
             
-            // FIX: Force the session to save before redirecting
             req.session.save(() => {
                 res.redirect("/listings");
             });
@@ -38,7 +36,6 @@ module.exports.login = async(req,res)=>{
     req.flash("success","Welcome back to Wanderlust!");
     let redirectUrl = res.locals.redirectUrl || "/listings";
     
-    // FIX: Force the session to save before redirecting
     req.session.save(() => {
         res.redirect(redirectUrl);
     });
@@ -51,7 +48,6 @@ module.exports.logout = (req,res,next)=>{
         }
         req.flash("success","You logged out now!");
         
-        // FIX: Force the session to save before redirecting
         req.session.save(() => {
             res.redirect("/listings");
         });

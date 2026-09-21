@@ -20,7 +20,6 @@ router.route("/")
 router.get("/new", isLoggedIn,listingController.renderNewForm);
 
 
-// --- SAVE / LIKE ROUTE (Must be ABOVE /:id) ---
 router.post("/:id/save", isLoggedIn, wrapAsync(async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(req.user._id);

@@ -1,9 +1,8 @@
 mapboxgl.accessToken = mapToken;
 
-// FIX: Only attempt to build the map if coordinates exist
 if (listing.geometry && listing.geometry.coordinates && listing.geometry.coordinates.length) {
     const map = new mapboxgl.Map({
-        container: 'map', // container ID
+        container: 'map', 
         style: 'mapbox://styles/mapbox/streets-v12',
         center: listing.geometry.coordinates, 
         zoom: 10 

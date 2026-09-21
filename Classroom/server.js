@@ -8,11 +8,6 @@ app.use(session({
     saveUninitialized: true,
 
 }));
-
-// app.get("/test",(req,res)=>{
-//     res.send("Test Successfull!!!!");
-// })
-
 app.get("/reqcount",(req,res)=>{
     if(req.session.count){
         req.session.count++;
