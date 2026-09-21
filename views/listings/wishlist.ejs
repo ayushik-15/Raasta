@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+  <div class="container mt-4">
+    <h2 class="mb-4">My Wishlist</h2>
+    
+    <% if(savedListings.length === 0) { %>
+      <div class="alert alert-light text-center mt-5" style="background: transparent; border: 1px dashed #ebebeb; border-radius: 16px; padding: 4rem;">
+        <h4 style="color: #222222;">Your wishlist is currently empty.</h4>
+        <p style="color: #717171;">Explore our properties and tap the heart icon to save them here for later!</p>
+        <a href="/listings" class="btn btn-dark mt-3">Explore Listings</a>
+      </div>
+    <% } else { %>
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+        <% for(let listing of savedListings) { %>
+          <div class="card col listing-card" style="position: relative;">
+            
+            <!-- Functional Unlike Button -->
+            <form method="POST" action="/listings/<%= listing._id %>/save" style="position: absolute; top: 15px; right: 15px; z-index: 10;">
+              <button type="submit" style="background: transparent; border: none; cursor: pointer; padding: 0;">
+                <i class="fa-solid fa-heart" 
+                   style="font-size: 1.4rem; color: #fe424d; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4)); transition: transform 0.2s;">
+                </i>
+              </button>
+            </form>
+
+            <a href="/listings/<%= listing._id %>" class="listing-link">
+              <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem">
+              <div class="card-body">
+                <p class="card-text">
+                  <b><%= listing.title %></b><br />
+                  &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
+                </p>
+              </div>
+            </a>
+          </div>
+        <% } %>
+      </div>
+    <% } %>
+  </div>
+</body>

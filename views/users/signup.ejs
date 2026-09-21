@@ -1,0 +1,27 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="auth-bg">
+    <div class="glass-card">
+        <h2>SignUp for Raasta</h2>
+        <form action="/signup" method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <!-- Labels are visually hidden for the sleek glass look, relying on placeholders instead -->
+                <label for="username" class="form-label visually-hidden">Username</label>
+                <input name="username" id="username" type="text" class="form-control" placeholder="Username" required />
+                <div class="valid-feedback" style="color: #e0f8e0;">Looks good!</div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label visually-hidden">Email</label>
+                <input name="email" id="email" type="email" class="form-control" placeholder="Email" required />
+            </div>
+            
+            <div class="mb-3">
+                <label for="password" class="form-label visually-hidden">Password</label>
+                <input name="password" id="password" type="password" class="form-control" placeholder="Password" required />
+            </div>
+            
+            <button class="glass-btn">SignUp</button>
+        </form>
+    </div>
+</div>
