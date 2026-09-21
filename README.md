@@ -1,4 +1,4 @@
-# Rasta Travel App
+# Raasta Travel App
 A full-stack web application for exploring and booking travel destinations. 
 
 ## Tech Stack
